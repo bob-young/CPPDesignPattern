@@ -4,34 +4,20 @@
 #include "AbstractFactory.h"
 #include "Builder.h"
 #include "Prototype.h"
+#include "Adapter.h"
 
-class a{
-public:
-    void print(){
-        std::cout<<"print a\n";
-    }
-};
 
-class b:public a{
-public:
-    void print(){
-        std::cout<<"print b\n";
-    }
-};
-void show (a& s){
-    s.print();
-}
-void show2 (b& s){
-    s.print();
-}
 int main() {
+
     //test singleton
+    std::cout << "\n---------- singleton ----------"<<std::endl;
     Singleton *s=Singleton::getInstance();
     std::cout << s<<std::endl;
     Singleton *ss=Singleton::getInstance();
     std::cout << ss<<std::endl;
 
     //test factory
+    std::cout << "\n---------- factory ----------"<<std::endl;
     Factory f;
     Product* a=f.getProduct('A');
     Product* b=f.getProduct('B');
@@ -41,6 +27,7 @@ int main() {
     c->getType();
 
     //test abstract factory
+    std::cout << "\n---------- abstract factory ----------"<<std::endl;
     AbstractFactory* samsung=new samsungFactory();
     AbstractFactory* apple=new appleFactory();
     laptop* laptop1=samsung->makeLaptop();
@@ -53,6 +40,7 @@ int main() {
     smartphone2->info();
 
     //test builder
+    std::cout << "\n---------- builder ----------"<<std::endl;
     Builder* vegBuilder=new VegBuilder();
     Builder* meatBuilder=new MeatBuilder();
     Meal* vegmeal=vegBuilder->getMeal();
@@ -63,6 +51,7 @@ int main() {
     std::cout<<"cost: "<<meatmeal->getTotalPrice()<<std::endl;
 
     //test prototype
+    std::cout << "\n---------- prototype ----------"<<std::endl;
     Prototype* p=new cloneablePrototype();
     p->counter+=100;
     (*(p->ip))+=50;
@@ -72,6 +61,11 @@ int main() {
     std::cout << p->counter<<':'<<p->ip<<':'<<*(p->ip)<<std::endl;
     std::cout << p2->counter<<':'<<p2->ip<<':'<<*(p2->ip)<<std::endl;
 
-    
+    //test adapter
+    std::cout << "\n---------- adapter ----------"<<std::endl;
+    AudioPlayer* ap=new AudioPlayer();
+    ap->play("mp3","nihao.mp3");
+    ap->play("mp4","nihao.mp4");
+    ap->play("vlc","nihao.vlc");
     return 0;
 }
