@@ -3,6 +3,7 @@
 #include "Factory.h"
 #include "AbstractFactory.h"
 #include "Builder.h"
+#include "Prototype.h"
 
 class a{
 public:
@@ -60,5 +61,17 @@ int main() {
     std::cout<<"cost: "<<vegmeal->getTotalPrice()<<std::endl;
     meatmeal->showItems();
     std::cout<<"cost: "<<meatmeal->getTotalPrice()<<std::endl;
+
+    //test prototype
+    Prototype* p=new cloneablePrototype();
+    p->counter+=100;
+    (*(p->ip))+=50;
+    Prototype* p2=p->clone();
+    p->counter++;
+    (*(p2->ip))++;
+    std::cout << p->counter<<':'<<p->ip<<':'<<*(p->ip)<<std::endl;
+    std::cout << p2->counter<<':'<<p2->ip<<':'<<*(p2->ip)<<std::endl;
+
+    
     return 0;
 }

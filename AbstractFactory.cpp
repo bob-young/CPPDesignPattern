@@ -3,3 +3,22 @@
 //
 
 #include "AbstractFactory.h"
+
+laptop::laptop() {
+
+}
+laptop::~laptop() {
+
+}
+
+smartphone::smartphone() {
+
+}
+
+smartphone::~smartphone() {
+
+}
+
+AbstractFactory::~AbstractFactory() {
+
+}
