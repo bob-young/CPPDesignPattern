@@ -7,47 +7,45 @@
 MediaPlayer::MediaPlayer() {
 
 }
-void Mp3Player::play(std::string file) {
-    std::cout<<"mp3 player :"<<file<<std::endl;
-}
+//void Mp3Player::play(std::string file) {
+//    std::cout<<"mp3 player :"<<file<<std::endl;
+//}
 
 Mp3Player::Mp3Player() {
 
 }
 
 void Mp3Player::play(std::string type, std::string file) {
-
+    std::cout<<"mp3 player :"<<file<<std::endl;
 }
 
-void Mp4Player::playMp4(std::string file) {
+void Mp4Player::play(std::string file) {
     std::cout<<"mp4 player :"<<file<<std::endl;
 }
 
-void Mp4Player::playVlc(std::string file) {
-
-}
 
 Mp4Player::Mp4Player() {
 
 }
 
-void VlcPlayer::playVlc(std::string file) {
+void VlcPlayer::play(std::string file) {
     std::cout<<"vlc player :"<<file<<std::endl;
 }
 
-void VlcPlayer::playMp4(std::string file) {
 
-}
 
 VlcPlayer::VlcPlayer() {
 
 }
 
 MediaAdapter::MediaAdapter(std::string type) {
-    if(type.compare("mp4")){
+    //use switch here can be better
+    if(type.compare("mp4")==0){
         amp=new Mp4Player();
-    }else{
+    }else if(type.compare("vlc")==0){
         amp=new VlcPlayer();
+    }else{
+        throw "invalid file type";
     }
 
 }
@@ -57,12 +55,21 @@ void MediaAdapter::play(std::string type, std::string file) {
 }
 
 void AudioPlayer::play(std::string type, std::string file) {
-    if(type.compare("mp3")==0){
+    if(type.compare("mp3")==0){//original function
         Mp3Player* mp3=new Mp3Player();
-        mp3->play(file);
-    }else if(type.compare("mp4")==0||type.compare("vlc")==0/*or other types*/){
-        ma=new MediaAdapter(type);
-        ma->play(file);
+        mp3->play(type,file);
+    }else{//adapter
+        bool errflag=0;
+        try {
+            ma=new MediaAdapter(type);
+        }catch (const char* msg){
+            errflag=1;
+            std::cerr<<msg<<std::endl;
+        }
+        if(errflag){
+            std::cout<<"wrong file type\n";
+        }else
+            ma->play(file);
     }
 }
 

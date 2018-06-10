@@ -67,5 +67,6 @@ int main() {
     ap->play("mp3","nihao.mp3");
     ap->play("mp4","nihao.mp4");
     ap->play("vlc","nihao.vlc");
+    ap->play("vc","nihao.vc");
     return 0;
 }

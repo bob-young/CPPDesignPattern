@@ -8,4 +8,7 @@
 <br>
 4.builder
 <br>
-
+5.prototype
+<br>
+6.adapter
+<br>
