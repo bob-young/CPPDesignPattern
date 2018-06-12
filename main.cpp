@@ -9,6 +9,7 @@
 #include "Filter.h"
 #include "Composite.h"
 #include "Decorator.h"
+#include "Facade.h"
 
 
 int main() {
@@ -17,6 +18,7 @@ int main() {
     std::cout << "\n---------- singleton ----------"<<std::endl;
     Singleton *s=Singleton::getInstance();
     std::cout << s<<std::endl;
+    delete(s);
     Singleton *ss=Singleton::getInstance();
     std::cout << ss<<std::endl;
 
@@ -114,7 +116,7 @@ int main() {
     cmo->getSalary();
     (*(cto->sub))[0]->getSalary();
 
-    //test composite
+    //test decorator
     std::cout << "\n---------- decorator ----------"<<std::endl;
     Car* gtr=new GTRCar();
     Decorator* supergtr=new ZJ2EngineDecorator(new GTRCar());
@@ -123,6 +125,13 @@ int main() {
     supergtr->start();
     mpvgtr->start();
 
-    
+    //test facade
+    std::cout << "\n---------- facade ----------"<<std::endl;
+    DinnerFacade* df=new DinnerFacade();
+    df->doit();
+    delete(df);
+
+    //test  flyweight
+    std::cout << "\n---------- flyweight ----------"<<std::endl;
     return 0;
 }
