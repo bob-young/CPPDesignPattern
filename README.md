@@ -12,3 +12,10 @@
 <br>
 6.adapter
 <br>
+7.bridge
+<br>
+8.filter
+<br>
+9.composite
+<br>
+10.decorator
