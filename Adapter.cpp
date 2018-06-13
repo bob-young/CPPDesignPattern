@@ -45,7 +45,7 @@ MediaAdapter::MediaAdapter(std::string type) {
     }else if(type.compare("vlc")==0){
         amp=new VlcPlayer();
     }else{
-        throw "invalid file type";
+        throw "invalid file type in media adapter";
     }
 
 }

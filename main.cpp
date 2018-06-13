@@ -10,6 +10,7 @@
 #include "Composite.h"
 #include "Decorator.h"
 #include "Facade.h"
+#include "Flyweight.h"
 
 
 int main() {
@@ -133,5 +134,11 @@ int main() {
 
     //test  flyweight
     std::cout << "\n---------- flyweight ----------"<<std::endl;
+    flyweight::CarFactory *cf=new flyweight::CarFactory();
+    cf->getCar("GTR","black")->getColor();
+    cf->getCar("GTR","white")->getColor();
+    cf->getCar("Fode","a")->getColor();
+    cf->getCar("GTR","white")->getColor();
+
     return 0;
 }
