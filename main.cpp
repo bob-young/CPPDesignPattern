@@ -11,6 +11,7 @@
 #include "Decorator.h"
 #include "Facade.h"
 #include "Flyweight.h"
+#include "Proxy.h"
 
 
 int main() {
@@ -140,5 +141,11 @@ int main() {
     cf->getCar("Fode","a")->getColor();
     cf->getCar("GTR","white")->getColor();
 
+
+    //test  proxy
+    std::cout << "\n---------- proxy ----------"<<std::endl;
+    proxy::Proxy *proxy1=new proxy::Proxy();
+    proxy1->getLocation();
+    proxy1->service();
     return 0;
 }
