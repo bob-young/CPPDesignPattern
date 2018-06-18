@@ -12,6 +12,9 @@
 #include "Facade.h"
 #include "Flyweight.h"
 #include "Proxy.h"
+#include "ChainRespomsinility.h"
+#include "Order.h"
+#include "Interpreter.h"
 
 
 int main() {
@@ -147,5 +150,29 @@ int main() {
     proxy::Proxy *proxy1=new proxy::Proxy();
     proxy1->getLocation();
     proxy1->service();
+
+    //test chain of responsibility
+    std::cout << "\n---------- chain of responsibility ----------"<<std::endl;
+    ChainRespomsinility* cr=new ChainRespomsinility();
+    cr->runChain();
+
+    //test order
+    std::cout << "\n---------- order ----------"<<std::endl;
+    Stock* ns=new Stock("ABC");
+    Order* buyStock=new BuyStock(ns);
+    Order* sellStock=new SellStock(ns);
+    buyStock->execute();
+    sellStock->execute();
+
+    //test order
+    std::cout << "\n---------- interpreter ----------"<<std::endl;
+    std::string teststr1="i am tall and rich";
+    std::string teststr2="i am tall and hansome";
+    tall_rich_hansome* ts1=new tall_rich_hansome();
+    std::cout << ts1->istrs(teststr1) <<std::endl;
+    std::cout << ts1->istrs(teststr2) <<std::endl;
+
+    //test iterator
+    std::cout << "\n---------- iterator ----------"<<std::endl;
     return 0;
 }
