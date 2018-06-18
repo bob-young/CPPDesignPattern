@@ -19,3 +19,18 @@
 9.composite
 <br>
 10.decorator
+<br>
+11.facade
+<br>
+12.flyweight
+<br>
+13.proxy
+<br>
+14.responsibility chain
+<br>
+15.order
+<br>
+16.interpreter
+<br>
+17.iterator
+<br>
