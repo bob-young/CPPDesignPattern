@@ -3,3 +3,8 @@
 //
 
 #include "iterator.h"
+//template <class T>
+//void Container<T>::add(T t) {
+//myvec.push_back(t);
+//}
+

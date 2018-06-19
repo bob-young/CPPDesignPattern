@@ -15,7 +15,8 @@
 #include "ChainRespomsinility.h"
 #include "Order.h"
 #include "Interpreter.h"
-
+#include "iterator.h"
+#include "Mediator.h"
 
 int main() {
 
@@ -174,5 +175,18 @@ int main() {
 
     //test iterator
     std::cout << "\n---------- iterator ----------"<<std::endl;
+    Container<int> *ct=new Container<int>();
+
+    ct->add(1234);
+    ct->add('c');
+    ct->add(10);
+    while(ct->has_next()){
+        std::cout<<ct->next()<<std::endl;
+    }
+
+    //test mediator
+    std::cout << "\n---------- mediator ----------"<<std::endl;
+    MUser* mbob=new MUser("bob");
+    mbob->sendMsg("hello world");
     return 0;
 }
