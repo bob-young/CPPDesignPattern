@@ -17,6 +17,7 @@
 #include "Interpreter.h"
 #include "iterator.h"
 #include "Mediator.h"
+#include "Memento.h"
 
 int main() {
 
@@ -188,5 +189,17 @@ int main() {
     std::cout << "\n---------- mediator ----------"<<std::endl;
     MUser* mbob=new MUser("bob");
     mbob->sendMsg("hello world");
+
+    //test memento
+    std::cout << "\n---------- memento ----------"<<std::endl;
+    Originator *originator=new Originator(1,"first",100);
+    originator->setV(2,"second",101);
+    originator->show();
+    originator->setV(3,"third",1020);
+    originator->show();
+    originator->rollback();
+    std::cout<<"roll back\n";
+    originator->rollback();
+    originator->show();
     return 0;
 }
