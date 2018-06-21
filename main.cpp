@@ -18,6 +18,7 @@
 #include "iterator.h"
 #include "Mediator.h"
 #include "Memento.h"
+#include "Observer.h"
 
 int main() {
 
@@ -201,5 +202,13 @@ int main() {
     std::cout<<"roll back\n";
     originator->rollback();
     originator->show();
+
+    //test Observer
+    std::cout << "\n---------- Observer ----------"<<std::endl;
+    Object* object=new Object();
+    Observer_A *oa=new Observer_A(object);
+    Observer_B *ob=new Observer_B(object);
+    object->setState(100);
+    delete ob;
     return 0;
 }
