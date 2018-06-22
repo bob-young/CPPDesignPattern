@@ -19,6 +19,7 @@
 #include "Mediator.h"
 #include "Memento.h"
 #include "Observer.h"
+#include "State.h"
 
 int main() {
 
@@ -210,5 +211,13 @@ int main() {
     Observer_B *ob=new Observer_B(object);
     object->setState(100);
     delete ob;
+
+    //test Observer
+    std::cout << "\n---------- state ----------"<<std::endl;
+    ContextImp* context=new ContextImp();
+    StateImp* start=new Start();
+    StateImp* stop=new Stop();
+    start->doAction(context);
+    stop->doAction(context);
     return 0;
 }
