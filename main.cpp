@@ -20,6 +20,7 @@
 #include "Memento.h"
 #include "Observer.h"
 #include "State.h"
+#include "NullObj.h"
 
 int main() {
 
@@ -212,12 +213,22 @@ int main() {
     object->setState(100);
     delete ob;
 
-    //test Observer
+    //test Observe
     std::cout << "\n---------- state ----------"<<std::endl;
     ContextImp* context=new ContextImp();
     StateImp* start=new Start();
     StateImp* stop=new Stop();
     start->doAction(context);
     stop->doAction(context);
+
+    //test NULLOBJ
+    std::cout << "\n---------- null object ----------"<<std::endl;
+    RealObjFactory* rof=new RealObjFactory();
+    AbstractObj* ao1=rof->productObj("aaa");
+    AbstractObj* ao2=rof->productObj("nnn");
+    AbstractObj* ao3=rof->productObj("f");
+    std::cout<<ao1->getName()<<std::endl;
+    std::cout<<ao2->getName()<<std::endl;
+    std::cout<<ao3->getName()<<std::endl;
     return 0;
 }
