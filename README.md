@@ -120,19 +120,19 @@
 <br>reflact: in java language,Observer has been implemented.Considering the IOC pattern in SpringMVC frame,when a user changes a instance,then all related instances will response to the change automatically.Generally,it simplifies and restricts the logicl,thus brings convience and reduces errors.
 <br>
 -----------------------------------------
-19.state:
+21.state:
 <br>feature:
 <br>usage:
 <br>reflact:make the states of a class abstract
 <br>
 -----------------------------------------
-19.NULL Object:
+22.NULL Object:
 <br>feature:
 <br>usage:
 <br>reflact:to avoid some cases that caused by null object
 <br>
 -----------------------------------------
-19.strategy:
+23.strategy:
 <br>feature:
 <br>usage:
 <br>reflact:like state pattern,but state pattern use a state instance to set target,while strategy pattern use target to include a strategy.
