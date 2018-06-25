@@ -43,33 +43,33 @@
 <br>
 -----------------------------------------
 8.filter:
-<br>feature:
+<br>feature:使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。
 <br>usage:
-<br>reflact:
+<br>reflact: the only usage i can image is to filer duriance data form DAO.  
 <br>
 -----------------------------------------
 9.composite:
-<br>feature:
+<br>feature:将对象组合成树形结构以表示"部分-整体"的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。
 <br>usage:
-<br>reflact:
+<br>reflact:the pattern just means using trees to manage a set of class.
 <br>
 -----------------------------------------
 10.decorator:
-<br>feature:
-<br>usage:
-<br>reflact:
+<br>feature:动态地给一个对象添加一些额外的职责。就增加功能来说，装饰器模式相比生成子类更为灵活。
+<br>usage: 1、扩展一个类的功能。 2、动态增加功能，动态撤销。 
+<br>reflact:Exremely convenient for extension operations.
 <br>
 -----------------------------------------
 11.facade:
-<br>feature:
+<br>feature:隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。
 <br>usage:
-<br>reflact:
+<br>reflact:just like proxy in some ways,it wraps a set of fixed operations in a order,thus a simple function call can execute all these functions in the right way
 <br>
 -----------------------------------------
 12.flyweight:
-<br>feature:
+<br>feature:享元模式尝试重用现有的同类对象，如果未找到匹配的对象，则创建新对象。
 <br>usage:
-<br>reflact:
+<br>reflact:like factory pattern,it use a class to control the generation of instances,what's more it use map to store all instances,so you can reuse them.sacrifice memory to save time.
 <br>
 -----------------------------------------
 13.proxy:
@@ -118,3 +118,22 @@
 <br>feature:当对象间存在一对多关系时，则使用观察者模式。比如，当一个对象被修改时，则会自动通知它的依赖对象。
 <br>usage:一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。
 <br>reflact: in java language,Observer has been implemented.Considering the IOC pattern in SpringMVC frame,when a user changes a instance,then all related instances will response to the change automatically.Generally,it simplifies and restricts the logicl,thus brings convience and reduces errors.
+<br>
+-----------------------------------------
+19.state:
+<br>feature:
+<br>usage:
+<br>reflact:make the states of a class abstract
+<br>
+-----------------------------------------
+19.NULL Object:
+<br>feature:
+<br>usage:
+<br>reflact:to avoid some cases that caused by null object
+<br>
+-----------------------------------------
+19.strategy:
+<br>feature:
+<br>usage:
+<br>reflact:like state pattern,but state pattern use a state instance to set target,while strategy pattern use target to include a strategy.
+<br>

@@ -21,6 +21,7 @@
 #include "Observer.h"
 #include "State.h"
 #include "NullObj.h"
+#include "Strategy.h"
 
 int main() {
 
@@ -230,5 +231,14 @@ int main() {
     std::cout<<ao1->getName()<<std::endl;
     std::cout<<ao2->getName()<<std::endl;
     std::cout<<ao3->getName()<<std::endl;
+
+    //test strategy
+    std::cout << "\n---------- strategy ----------"<<std::endl;
+    Strategy *add=new Add();
+    Contexts *context1=new Contexts(add,10,20);
+    context1->caculate();
+    Strategy *sub=new Sub();
+    context1->setStrategy(sub);
+    context1->caculate();
     return 0;
 }
