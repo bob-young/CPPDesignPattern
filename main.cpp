@@ -22,6 +22,7 @@
 #include "State.h"
 #include "NullObj.h"
 #include "Strategy.h"
+#include "Template.h"
 
 int main() {
 
@@ -214,7 +215,7 @@ int main() {
     object->setState(100);
     delete ob;
 
-    //test Observe
+    //test state
     std::cout << "\n---------- state ----------"<<std::endl;
     ContextImp* context=new ContextImp();
     StateImp* start=new Start();
@@ -240,5 +241,12 @@ int main() {
     Strategy *sub=new Sub();
     context1->setStrategy(sub);
     context1->caculate();
+
+    //test template
+    std::cout << "\n---------- template ----------"<<std::endl;
+    FootballGame *footballGame=new FootballGame();
+    BasketballGame *basketballGame=new BasketballGame();
+    footballGame->play();
+    basketballGame->play();
     return 0;
 }
