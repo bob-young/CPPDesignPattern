@@ -23,6 +23,7 @@
 #include "NullObj.h"
 #include "Strategy.h"
 #include "Template.h"
+#include "Visitor.h"
 
 int main() {
 
@@ -248,5 +249,12 @@ int main() {
     BasketballGame *basketballGame=new BasketballGame();
     footballGame->play();
     basketballGame->play();
+
+    //test template
+    std::cout << "\n---------- visitor ----------"<<std::endl;
+    Computer computer;
+    computer.accept(new VisitorImp());
+
+
     return 0;
 }
