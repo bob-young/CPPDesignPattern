@@ -137,3 +137,21 @@
 <br>usage:
 <br>reflact:like state pattern,but state pattern use a state instance to set target,while strategy pattern use target to include a strategy.
 <br>
+-----------------------------------------
+24.template:
+<br>feature:
+<br>usage:
+<br>reflact: template/facade is the same in some ways
+<br>
+-----------------------------------------
+25.visitor:
+<br>feature:
+<br>usage:
+<br>reflact:all sub classes have a implement for visitor 
+<br>
+-----------------------------------------
+26.MVC:
+<br>feature:
+<br>usage:
+<br>reflact:MVC model(data),view(present of data),C(M,V)
+<br>

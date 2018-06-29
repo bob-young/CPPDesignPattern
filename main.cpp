@@ -24,6 +24,7 @@
 #include "Strategy.h"
 #include "Template.h"
 #include "Visitor.h"
+#include "MVC.h"
 
 int main() {
 
@@ -256,5 +257,17 @@ int main() {
     computer.accept(new VisitorImp());
 
 
+    //test template
+    std::cout << "\n---------- MVC ----------"<<std::endl;
+    {
+        using namespace MVC;
+        StudentInfo studentInfo={20,"haha",2,'F'};
+        StudentModel* studentModel=new StudentModel(studentInfo);
+        StudentView* studentView=new StudentView();
+        StudentControl* studentControl=new StudentControl(studentModel,studentView);
+        studentControl->Display();
+        studentControl->upgrade();
+        studentControl->Display();
+    }
     return 0;
 }
